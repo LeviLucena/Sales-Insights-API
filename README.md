@@ -137,14 +137,19 @@ Product D | 3
 
 ## 🛠️ Tecnologias utilizadas
 
-- Python 3.12+
-- FastAPI
-- SQLAlchemy
-- SQLite
-- LangChain
-- OpenAI
-- Bootstrap 5
-- HTML + JavaScript
+- **Python 3.12+**: Linguagem de programação utilizada para todo o backend e scripts auxiliares do projeto, reconhecida pela sua legibilidade e robustez.
+- **FastAPI**: Framework moderno e de alto desempenho para construção de APIs REST em Python de forma assíncrona, com geração automática de documentação.
+- **Uvicorn**: Servidor ASGI leve e rápido utilizado para rodar a aplicação FastAPI em modo de desenvolvimento ou produção.
+- **SQLAlchemy**: ORM (Object-Relational Mapper) utilizado para modelagem de tabelas, consultas e integração com o banco de dados relacional de forma estruturada.
+- **Pydantic**: Biblioteca de validação de dados e serialização de dados no FastAPI, utilizada para schemas de entrada e saída de dados.
+- **SQLite**: Banco de dados relacional leve, embutido, utilizado para armazenamento das vendas e informações de produtos e clientes do sistema.
+- **sqlite-utils**: Ferramenta complementar para explorar, inserir e gerenciar dados em bancos SQLite de forma simplificada.
+- **python-dotenv**: Biblioteca para gerenciamento de variáveis de ambiente (.env), garantindo segurança no carregamento de chaves e credenciais (como a `OPENAI_API_KEY`).
+- **LangChain**: Framework para integração com modelos de linguagem (LLMs), utilizado para estruturar consultas em linguagem natural sobre o banco de dados.
+- **OpenAI API**: API da OpenAI utilizada para processar perguntas em linguagem natural, retornando insights em português de forma automatizada.
+- **Bootstrap 5**: Framework de CSS utilizado no frontend para construir interfaces responsivas, estéticas e funcionais de maneira ágil.
+- **HTML + JavaScript**: Tecnologias base do frontend, permitindo interatividade com os botões de consulta, carregamento de dados via fetch e apresentação de resultados.
+
 
 ---
 
