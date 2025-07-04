@@ -28,4 +28,12 @@ agent = create_sql_agent(
 
 # Função para processar a pergunta do usuário
 def process_question(question: str):
-    return agent.run(question)
+    response = agent.invoke({
+        "input": (
+            f"{question}. "
+            f"Retorne em português o NOME do produto mais vendido e o total de vendas em números, "
+            f"não o id, utilizando join com a tabela de produtos."
+        )
+    })
+    return response["output"]
+
