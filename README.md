@@ -215,12 +215,13 @@ uvicorn app.main:app --reload
 | ✅ Documentação ReDoc             | [http://127.0.0.1:8000/redoc](http://127.0.0.1:8000/redoc)        |
 
 ## 🛠️ Melhorias Futuras
-Upload de shapefiles para sobrepor limites territoriais (ex: terras indígenas, unidades de conservação).
-
-- Filtros por data, estado ou intensidade.
-- Exportar visualizações como imagem ou PDF.
-- Histórico temporal (animação de queimadas por dia).
-- Notificações via e-mail ou Telegram sobre novos focos críticos.
+- Filtros por período customizado (últimos 30 dias, mês fechado, ano).
+- Exportar relatórios de vendas em CSV, Excel ou PDF.
+- Dashboard gráfico interativo com filtros dinâmicos.
+- Suporte a múltiplos idiomas (pt-BR, en-US).
+- Notificações via e-mail ou Telegram para alertar sobre vendas altas.
+- Integração com Power BI ou Google Data Studio para análises avançadas.
+- Autenticação de usuários e permissões de acesso.
 
 ## 📚 Referências
 - TIANGOLO, Sebastián Ramírez. *FastAPI: Modern, Fast (High-performance), Web Framework for Building APIs with Python 3.6+*. Disponível em: [https://fastapi.tiangolo.com](https://fastapi.tiangolo.com). Acesso em: 04 jul. 2025.
