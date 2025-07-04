@@ -71,6 +71,61 @@ Este é um projeto API REST construída com **FastAPI + LangChain + OpenAI + SQL
 - "Quais produtos mais venderam na última semana?"
 - "Quantas vendas ocorreram em junho?"
 
+Caso queira confirmar no banco de dados se as informações estão corretas:
+1. abra o terminal CMD
+```bash
+".cmd" refere-se ao Prompt de Comando do Windows
+```
+
+2. navegue até a pasta do projeto
+```bash
+cd Sales-Insights-Api
+```
+
+3. Habilite a função de consulta do banco
+```bash
+sqlite3 sales.db
+```
+
+execute as queries
+> 🔍 Como você pode confirmar isso?
+
+➡️ Rode no SQLite:
+```bash
+SELECT p.name, SUM(s.quantity) as total_quantity
+FROM sales s
+JOIN products p ON p.id = s.product_id
+WHERE date(s.sale_date) >= date('2025-06-04')
+GROUP BY p.name
+ORDER BY total_quantity DESC
+LIMIT 5;
+```
+Isso mostrará os top produtos nos últimos 30 dias reais (como /top-products).
+
+
+➡️ Rode também:
+```bash
+SELECT p.name, SUM(s.quantity) as total_quantity
+FROM sales s
+JOIN products p ON p.id = s.product_id
+WHERE strftime('%Y-%m', s.sale_date) = '2025-06'
+GROUP BY p.name
+ORDER BY total_quantity DESC
+LIMIT 5;
+```
+Isso mostrará os top produtos de junho de 2025, provavelmente retornando Product C com 5 vendas.
+
+outro caso é 
+1️⃣ Query “últimos 30 dias corridos” (/top-products):
+```bash
+WHERE date(s.sale_date) >= date('2025-06-04')
+🔹 Retornou:
+
+Product E | 4
+Product D | 3
+```
+👉 Corresponde ao botão “Ver Top Produtos”, que busca últimos 30 dias corridos.
+
 ---
 
 ## 📸 Prints
@@ -158,3 +213,27 @@ uvicorn app.main:app --reload
 | 🌐 Acesso ao Frontend           | [http://127.0.0.1:8000/](http://127.0.0.1:8000/)       |
 | ✅ Documentação Swagger           | [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs)          |
 | ✅ Documentação ReDoc             | [http://127.0.0.1:8000/redoc](http://127.0.0.1:8000/redoc)        |
+
+## 🛠️ Melhorias Futuras
+Upload de shapefiles para sobrepor limites territoriais (ex: terras indígenas, unidades de conservação).
+
+- Filtros por data, estado ou intensidade.
+- Exportar visualizações como imagem ou PDF.
+- Histórico temporal (animação de queimadas por dia).
+- Notificações via e-mail ou Telegram sobre novos focos críticos.
+
+## 📚 Referências
+- TIANGOLO, Sebastián Ramírez. *FastAPI: Modern, Fast (High-performance), Web Framework for Building APIs with Python 3.6+*. Disponível em: [https://fastapi.tiangolo.com](https://fastapi.tiangolo.com). Acesso em: 04 jul. 2025.
+- *SQLAlchemy Documentation*. Disponível em: [https://www.sqlalchemy.org](https://www.sqlalchemy.org). Acesso em: 04 jul. 2025.
+- HIPPEL, D. Richard et al. *SQLite Database*. Disponível em: [https://www.sqlite.org/index.html](https://www.sqlite.org/index.html). Acesso em: 04 jul. 2025.
+- *LangChain Documentation*. Disponível em: [https://www.langchain.com](https://www.langchain.com). Acesso em: 04 jul. 2025.
+- *OpenAI API Reference*. Disponível em: [https://platform.openai.com/docs/api-reference](https://platform.openai.com/docs/api-reference). Acesso em: 04 jul. 2025.
+- *Bootstrap Documentation*. Disponível em: [https://getbootstrap.com](https://getbootstrap.com). Acesso em: 04 jul. 2025.
+- *Chart.js Documentation*. Disponível em: [https://www.chartjs.org](https://www.chartjs.org). Acesso em: 04 jul. 2025.
+
+
+## 🤝 Como Contribuir
+Sinta-se à vontade para contribuir, sugerir melhorias ou relatar problemas para ajudar a desenvolver este projeto.
+
+## 📄 Licença
+Este projeto está licenciado sob a licença MIT — veja [LICENSE](https://github.com/github/gitignore/blob/main/LICENSE) para detalhes.
