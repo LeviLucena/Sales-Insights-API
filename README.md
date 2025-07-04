@@ -75,7 +75,7 @@ Este é um projeto API REST construída com **FastAPI + LangChain + OpenAI + SQL
 
 ## 📸 Prints
 
-| ![image](https://github.com/user-attachments/assets/977b9258-847a-452c-b50e-a67ccec4252b) | ![image](https://github.com/user-attachments/assets/27385b06-982f-48b4-8f4e-7ae2e5971f1a) | ![image](https://github.com/user-attachments/assets/78e85b5f-6504-401c-a9fb-11fcd165e1ab) |
+| ![image](https://github.com/user-attachments/assets/79a2b2bf-abce-459b-9637-91f737d08b49) | ![image](https://github.com/user-attachments/assets/27385b06-982f-48b4-8f4e-7ae2e5971f1a) | ![image](https://github.com/user-attachments/assets/78e85b5f-6504-401c-a9fb-11fcd165e1ab) |
 |---|---|---|
 
 ---
