@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Sales Insights API Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+
+    <div class="container py-5">
+        <div class="card shadow-lg mx-auto" style="max-width: 600px;">
+            <div class="card-body">
+                <h1 class="card-title text-center text-primary mb-4">📊 Sales Insights API Dashboard</h1>
+
+                <div class="d-flex justify-content-center gap-2 mb-4">
+                    <a href="/docs" target="_blank" class="btn btn-primary">📄 Swagger Docs</a>
+                    <a href="/redoc" target="_blank" class="btn btn-danger">📕 ReDoc Docs</a>
+                </div>
+
+                <!-- Consultar Insights -->
+                <div class="mb-4">
+                    <h5 class="mb-2">🔍 Consultar Insights</h5>
+                    <input id="question" type="text" class="form-control mb-2" placeholder="Ex: Qual foi o produto mais vendido na última semana?">
+                    <button onclick="getInsight()" class="btn btn-success w-100">Consultar Insight</button>
+                    <div id="insightResult" class="mt-3 p-3 bg-body-tertiary rounded text-center text-muted fst-italic"></div>
+                </div>
+
+                <!-- Top Produtos -->
+                <div>
+                    <h5 class="mb-2">🏆 Top Produtos do Último Mês</h5>
+                    <button onclick="getTopProducts()" class="btn btn-primary w-100">Ver Top Produtos</button>
+                    <div id="topProductsResult" class="mt-3 row g-2"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        async function getInsight() {
+            const question = document.getElementById("question").value;
+            const resultDiv = document.getElementById("insightResult");
+
+            // Loader
+            resultDiv.innerHTML = `<div class="spinner-border text-primary" role="status"></div><div class="mt-2">Pensando...</div>`;
+
+            try {
+                const response = await fetch(`/sales-insights?question=${encodeURIComponent(question)}`);
+                const data = await response.json();
+
+                resultDiv.innerHTML = `
+                    <div class="text-start">
+                        <p><strong class="text-success">🟩 Pergunta:</strong> ${data.question}</p>
+                        <p><strong class="text-primary">🟦 Resumo:</strong> ${data.answer.summary}</p>
+                        <p><strong class="text-warning">🟨 Detalhe Bruto:</strong> ${data.answer.raw}</p>
+                    </div>
+                `;
+            } catch (error) {
+                resultDiv.innerHTML = `<div class="text-danger">❌ Ocorreu um erro ao consultar o insight.</div>`;
+            }
+        }
+
+        async function getTopProducts() {
+            const container = document.getElementById("topProductsResult");
+            container.innerHTML = `
+                <div class="d-flex justify-content-center align-items-center">
+                    <div class="spinner-border text-primary" role="status"></div>
+                    <div class="ms-2">Carregando produtos...</div>
+                </div>
+            `;
+
+            try {
+                const response = await fetch("/top-products");
+                const data = await response.json();
+                container.innerHTML = '';
+                data.forEach(item => {
+                    const col = document.createElement('div');
+                    col.className = 'col-12 col-sm-6';
+                    col.innerHTML = `
+                        <div class="card border shadow-sm p-2 h-100">
+                            <div class="card-body">
+                                <h6 class="card-title text-primary">${item.product_name}</h6>
+                                <p class="card-text small">Total vendido: ${item.total_quantity}</p>
+                            </div>
+                        </div>
+                    `;
+                    container.appendChild(col);
+                });
+            } catch (error) {
+                container.innerHTML = `<div class="text-danger">❌ Ocorreu um erro ao carregar os produtos.</div>`;
+            }
+        }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
