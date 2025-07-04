@@ -208,6 +208,7 @@ sqlite3 sales.db < sales_data.sql
 uvicorn app.main:app --reload
 ```
 
+## 📡 Endpoints e Documentação
 | **Descrição**                     | **Endereço**                                     |
 |----------------------------------|--------------------------------------------------|
 | 🌐 Acesso ao Frontend           | [http://127.0.0.1:8000/](http://127.0.0.1:8000/)       |
