@@ -1,3 +1,48 @@
+<p align="center">
+  <!-- Python 3.12+ -->
+  <a href="https://www.python.org/">
+    <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python 3.12+" />
+  </a>
+
+  <!-- FastAPI -->
+  <a href="https://fastapi.tiangolo.com/">
+    <img src="https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white" alt="FastAPI" />
+  </a>
+
+  <!-- SQLAlchemy -->
+  <a href="https://www.sqlalchemy.org/">
+    <img src="https://img.shields.io/badge/SQLAlchemy-FF4136?style=for-the-badge&logo=sqlalchemy&logoColor=white" alt="SQLAlchemy" />
+  </a>
+
+  <!-- SQLite -->
+  <a href="https://www.sqlite.org/">
+    <img src="https://img.shields.io/badge/SQLite-003B57?style=for-the-badge&logo=sqlite&logoColor=white" alt="SQLite" />
+  </a>
+
+  <!-- LangChain -->
+  <a href="https://docs.langchain.com/docs/">
+    <img src="https://img.shields.io/badge/LangChain-8B4513?style=for-the-badge&logo=python&logoColor=white" alt="LangChain" />
+  </a>
+
+  <!-- OpenAI -->
+  <a href="https://platform.openai.com/">
+    <img src="https://img.shields.io/badge/OpenAI-6A0DAD?style=for-the-badge&logo=openai&logoColor=white" alt="OpenAI" />
+  </a>
+
+  <!-- Bootstrap 5 -->
+  <a href="https://getbootstrap.com/">
+    <img src="https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white" alt="Bootstrap 5" />
+  </a>
+
+  <!-- HTML + JavaScript -->
+  <a href="https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5">
+    <img src="https://img.shields.io/badge/HTML-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="HTML" />
+  </a>
+  <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript">
+    <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript" />
+  </a>
+</p>
+
 # 📊 Sales Insights API
 
 ![image](https://github.com/user-attachments/assets/6d60b318-ae77-4bfb-8991-db27df419be1)
